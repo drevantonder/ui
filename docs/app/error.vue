@@ -48,7 +48,7 @@ useServerSeoMeta({
 
 useFaviconFromTheme()
 
-const { frameworks } = useSharedData()
+const { frameworks } = useFrameworks()
 const links = useSearchLinks()
 const { mappedNavigation, filteredNavigation } = useSearchNavigation(navigation)
 

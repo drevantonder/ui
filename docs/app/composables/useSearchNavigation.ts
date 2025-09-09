@@ -32,7 +32,7 @@ function processNavigationItemIcon(item: ContentNavigationItem) {
 }
 
 export const useSearchNavigation = (navigation: Ref<ContentNavigationItem[] | undefined>) => {
-  const { framework } = useSharedData()
+  const { framework } = useFrameworks()
 
   const mappedNavigation = computed(() => navigation.value?.[0]?.children?.map(item => processNavigationItem(item)))
 

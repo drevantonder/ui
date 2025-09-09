@@ -5,7 +5,7 @@ import { mapContentNavigation } from '@nuxt/ui/utils/content'
 import { findPageBreadcrumb } from '@nuxt/content/utils'
 
 const route = useRoute()
-const { framework } = useSharedData()
+const { framework } = useFrameworks()
 
 definePageMeta({
   layout: 'docs'
