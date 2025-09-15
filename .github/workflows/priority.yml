@@ -8,6 +8,7 @@ on:
 
 permissions:
   issues: write
+  pull-requests: write
 
 # Avoid label race conditions with other workflows (issue-labeler, etc.)
 concurrency:
@@ -59,7 +60,9 @@ jobs:
                 if (!current.includes(target)) await addLabels([target]);
                 if (current.includes(TRIAGE)) await removeLabel(TRIAGE);
 
-                await github.rest.reactions.createForIssueComment({ ...context.repo, comment_id: context.payload.comment.id, content: "rocket" });
+                // Delete the command comment after processing
+                await github.rest.issues.deleteComment({ ...context.repo, comment_id: context.payload.comment.id });
+
                 return;
               }
             }
